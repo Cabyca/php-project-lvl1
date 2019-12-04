@@ -1,0 +1,14 @@
+{
+    "name": "alex/php-project-lvl1",
+    "description": "php-project-lvl1",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex",
+            "email": "cabyca@yandex.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
