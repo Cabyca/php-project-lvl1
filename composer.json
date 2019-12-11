@@ -1,7 +1,8 @@
 {
     "name": "cabyca/php-project-lvl1",
     "bin": [
-        "bin/brain-games"
+        "bin/brain-games",
+        "bin/brain-even"
     ],
     "description": "php-project-lvl1",
     "type": "project",
@@ -18,7 +19,8 @@
     },
     "autoload": {
         "files": [
-            "src/Cli.php"
+            "src/Cli.php",
+            "src/Even.php"
         ]
     },
     "require": {
