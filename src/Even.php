@@ -27,6 +27,7 @@ function even()
         } else {
             line("'yes' is wrong answer ;(. Correct answer was 'no'.");
             line("Let's try again, %s!", $name);
+            $correctAnswerCounter = 3;
         }
     }
     line("Congratulations, %s!", $name);
