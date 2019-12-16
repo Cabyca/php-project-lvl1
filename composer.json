@@ -2,7 +2,7 @@
     "name": "cabyca/php-project-lvl1",
     "bin": [
         "bin/brain-games",
-        "brain-even"
+        "bin/brain-even"
     ],
     "description": "php-project-lvl1",
     "type": "library",
