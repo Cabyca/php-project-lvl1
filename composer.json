@@ -5,7 +5,7 @@
         "brain-even"
     ],
     "description": "php-project-lvl1",
-    "type": "project",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
