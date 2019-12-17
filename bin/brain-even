@@ -2,6 +2,6 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
-use function Even\Cli\even;
+use function BrainGames\Even\even;
 
 even();
