@@ -4,25 +4,21 @@ namespace BrainGames\Engine;
 
 use function cli\line;
 use function cli\prompt;
-
 use function BrainGames\Even\even;
 use function BrainGames\Calc\calc;
 
 function gameselection($nameGame)
 {
     line('Welcome to the Brain Game!');
-
     switch ($nameGame) {
-    case "even":
-        line('Answer "yes" if the number is even, otherwise answer "no".');
-        break;
-    case "calc":
-        line('What is the result of the expression?');
-        break;
-    case "2":
-        echo "";
-        break;
-    default: true;
+        case "even":
+            line('Answer "yes" if the number is even, otherwise answer "no".');
+            break;
+        case "calc":
+            line('What is the result of the expression?');
+            break;
+        default:
+            true;
     }
 
     $name = prompt('May I have your name?');
@@ -36,16 +32,14 @@ function gameselection($nameGame)
         $textCorrectAnswer = '';
 
         switch ($nameGame) {
-        case "even":
-            list ($textQuestion, $textCorrectAnswer) = even();
-            break;
-        case "calc":
-            list ($textQuestion, $textCorrectAnswer) = calc();
-            break;
-        case "2":
-            echo "";
-            break;
-        default: true;
+            case "even":
+                list ($textQuestion, $textCorrectAnswer) = even();
+                break;
+            case "calc":
+                list ($textQuestion, $textCorrectAnswer) = calc();
+                break;
+            default:
+                true;
         }
 
         line('Question: ' . $textQuestion);
