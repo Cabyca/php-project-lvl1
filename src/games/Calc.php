@@ -26,7 +26,7 @@ function calc()
             $textQuestion = (string) $randomValue1 . "*" . (string) $randomValue2;
             $textCorrectAnswer = (string) $result;
             break;
-        default: 
+        default:
             true;
     }
     return array ($textQuestion, $textCorrectAnswer);

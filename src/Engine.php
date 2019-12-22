@@ -2,8 +2,8 @@
 
 namespace BrainGames\Engine;
 
-use function \cli\line;
-use function \cli\prompt;
+use function cli\line;
+use function cli\prompt;
 use function BrainGames\Even\even;
 use function BrainGames\Calc\calc;
 
