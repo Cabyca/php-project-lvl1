@@ -3,7 +3,7 @@
 namespace BrainGames\Even;
 
 function even()
-{   
+{
     $randomValue = mt_rand(1, 100);
 
     $textQuestion = (string) $randomValue;
@@ -13,6 +13,5 @@ function even()
     } elseif ($randomValue % 2 !== 0) {
         $textCorrectAnswer = (string)'no';
     }
-    
     return array ($textQuestion, $textCorrectAnswer);
 }

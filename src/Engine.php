@@ -2,8 +2,8 @@
 
 namespace BrainGames\Engine;
 
-use function cli\line;
-use function cli\prompt;
+use function \cli\line;
+use function \cli\prompt;
 use function BrainGames\Even\even;
 use function BrainGames\Calc\calc;
 
@@ -25,9 +25,7 @@ function gameselection($nameGame)
     line("Hello, %s!", $name);
 
     $counterCorrectAnswer = 3;
-
     while ($counterCorrectAnswer !== 0) {
-    
         $textQuestion = '';
         $textCorrectAnswer = '';
 
@@ -53,8 +51,6 @@ function gameselection($nameGame)
             line("Let's try again, %s!", $name);
             $counterCorrectAnswer = 3;
         }
-    
     }
-
     line("Congratulations, %s!", $name);
 }

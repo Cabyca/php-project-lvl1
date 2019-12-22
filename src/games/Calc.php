@@ -5,13 +5,11 @@ namespace BrainGames\Calc;
 function calc()
 {
     $arrayOperators = ['-', '+', '*'];
-
     $rand_keys = array_rand($arrayOperators, 1);
-    
-    $randomOperator = $arrayOperators[$rand_keys];    
+    $randomOperator = $arrayOperators[$rand_keys];
     $randomValue1 = mt_rand(1, 25);
     $randomValue2 = mt_rand(1, 25);
-
+    
     switch ($randomOperator) {
         case "-":
             $result = $randomValue1 - $randomValue2;
@@ -31,6 +29,5 @@ function calc()
         default: 
             true;
     }
-
     return array ($textQuestion, $textCorrectAnswer);
 }
