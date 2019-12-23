@@ -6,6 +6,7 @@ use function cli\line;
 use function cli\prompt;
 use function BrainGames\Even\even;
 use function BrainGames\Calc\calc;
+use function BrainGames\Gcd\gcd;
 
 function gameselection($nameGame)
 {
@@ -16,6 +17,9 @@ function gameselection($nameGame)
             break;
         case "calc":
             line('What is the result of the expression?');
+            break;
+        case "gcd":
+            line('Find the greatest common divisor of given numbers.');
             break;
         default:
             true;
@@ -35,6 +39,9 @@ function gameselection($nameGame)
                 break;
             case "calc":
                 list ($textQuestion, $textCorrectAnswer) = calc();
+                break;
+            case "gcd":
+                list ($textQuestion, $textCorrectAnswer) = gcd();
                 break;
             default:
                 true;
