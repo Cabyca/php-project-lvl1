@@ -9,3 +9,7 @@
 Установка проекта глобально и запуск игры Calculator
 
 [![asciicast](https://asciinema.org/a/Xw6Qlz6hoRrmmFNlOkSyV4I8Z.svg)](https://asciinema.org/a/Xw6Qlz6hoRrmmFNlOkSyV4I8Z)
+
+Установка проекта глобально и запуск игры Greatest divisor
+
+[![asciicast](https://asciinema.org/a/CVVgzqbzJOQOKnvp2QxYhDA92.svg)](https://asciinema.org/a/CVVgzqbzJOQOKnvp2QxYhDA92)
