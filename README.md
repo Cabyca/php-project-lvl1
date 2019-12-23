@@ -5,3 +5,7 @@
 Установка проекта глобально и запуск игры Even
 
 [![asciicast](https://asciinema.org/a/0qtIBl5DyAIj4SeUXi7oSo64H.svg)](https://asciinema.org/a/0qtIBl5DyAIj4SeUXi7oSo64H)
+
+Установка проекта глобально и запуск игры Calculator
+
+[![asciicast](https://asciinema.org/a/Xw6Qlz6hoRrmmFNlOkSyV4I8Z.svg)](https://asciinema.org/a/Xw6Qlz6hoRrmmFNlOkSyV4I8Z)
