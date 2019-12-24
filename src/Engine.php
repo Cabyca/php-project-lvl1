@@ -8,6 +8,7 @@ use function BrainGames\Even\even;
 use function BrainGames\Calc\calc;
 use function BrainGames\Gcd\gcd;
 use function BrainGames\Progression\progression;
+use function BrainGames\Prime\prime;
 
 function gameselection($nameGame)
 {
@@ -25,6 +26,9 @@ function gameselection($nameGame)
         case "progression":
             line('What number is missing in the progression?');
             break;
+        case "prime":
+            line('Answer "yes" if given number is prime. Otherwise answer "no".');
+            break;
         default:
             true;
     }
@@ -39,16 +43,19 @@ function gameselection($nameGame)
 
         switch ($nameGame) {
             case "even":
-                list ($textQuestion, $textCorrectAnswer) = even();
+                list($textQuestion, $textCorrectAnswer) = even();
                 break;
             case "calc":
-                list ($textQuestion, $textCorrectAnswer) = calc();
+                list($textQuestion, $textCorrectAnswer) = calc();
                 break;
             case "gcd":
-                list ($textQuestion, $textCorrectAnswer) = gcd();
+                list($textQuestion, $textCorrectAnswer) = gcd();
                 break;
             case "progression":
-                list ($textQuestion, $textCorrectAnswer) = progression();
+                list($textQuestion, $textCorrectAnswer) = progression();
+                break;
+            case "prime":
+                list($textQuestion, $textCorrectAnswer) = prime();
                 break;
             default:
                 true;
