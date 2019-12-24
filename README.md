@@ -17,3 +17,7 @@
 Установка проекта глобально и запуск игры Progression
 
 [![asciicast](https://asciinema.org/a/3ysRZimRIrkrmvXgxs5yPqAlr.svg)](https://asciinema.org/a/3ysRZimRIrkrmvXgxs5yPqAlr)
+
+Установка проекта глобально и запуск игры Prime
+
+[![asciicast](https://asciinema.org/a/RmANB3wygycINjhVEB0p5uDAv.svg)](https://asciinema.org/a/RmANB3wygycINjhVEB0p5uDAv)
