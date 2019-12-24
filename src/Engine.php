@@ -7,6 +7,7 @@ use function cli\prompt;
 use function BrainGames\Even\even;
 use function BrainGames\Calc\calc;
 use function BrainGames\Gcd\gcd;
+use function BrainGames\Progression\progression;
 
 function gameselection($nameGame)
 {
@@ -20,6 +21,9 @@ function gameselection($nameGame)
             break;
         case "gcd":
             line('Find the greatest common divisor of given numbers.');
+            break;
+        case "progression":
+            line('What number is missing in the progression?');
             break;
         default:
             true;
@@ -42,6 +46,9 @@ function gameselection($nameGame)
                 break;
             case "gcd":
                 list ($textQuestion, $textCorrectAnswer) = gcd();
+                break;
+            case "progression":
+                list ($textQuestion, $textCorrectAnswer) = progression();
                 break;
             default:
                 true;
