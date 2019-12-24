@@ -13,3 +13,7 @@
 Установка проекта глобально и запуск игры Greatest divisor
 
 [![asciicast](https://asciinema.org/a/CVVgzqbzJOQOKnvp2QxYhDA92.svg)](https://asciinema.org/a/CVVgzqbzJOQOKnvp2QxYhDA92)
+
+Установка проекта глобально и запуск игры Progression
+
+[![asciicast](https://asciinema.org/a/3ysRZimRIrkrmvXgxs5yPqAlr.svg)](https://asciinema.org/a/3ysRZimRIrkrmvXgxs5yPqAlr)
