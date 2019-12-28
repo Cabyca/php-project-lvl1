@@ -11,8 +11,6 @@ function calc()
     gameselection($nameGames, $questionGames);
 }
 
-$arrayOperators = [];
-
 function calcGame()
 {
     $arrayOperators = ['-', '+', '*'];

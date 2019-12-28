@@ -32,7 +32,7 @@ function isPrime($randomValue)
 
     for ($i = 2; $i <= $sqrtRandomValue; $i += 1) {
         if ($randomValue % $i === 0) {
-           return false; 
+            return false;
         }
     }
     return true;

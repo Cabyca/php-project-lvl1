@@ -25,7 +25,6 @@ function gameselection($nameGames, $questionGames)
     $textCorrectAnswer = '';
     
     while ($counterCorrectAnswer !== 0) {
-        
         switch ($nameGames) {
             case "even":
                 list($textQuestion, $textCorrectAnswer) = evenGame();
@@ -44,7 +43,7 @@ function gameselection($nameGames, $questionGames)
                 break;
             default:
                 true;
-        }        
+        }
         line('Question: ' . $textQuestion);
         $answerGamer = prompt('Your answer ');
 
