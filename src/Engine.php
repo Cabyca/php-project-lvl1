@@ -55,9 +55,6 @@ function gameselection($nameGames, $questionGames)
             line("Let's try again, %s!", $name);
             $counterCorrectAnswer = 3;
         }
-
     }
-
     line("Congratulations, %s!", $name);
-
 }
