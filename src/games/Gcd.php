@@ -2,7 +2,16 @@
 
 namespace BrainGames\Gcd;
 
+use function BrainGames\Engine\gameselection;
+
 function gcd()
+{
+    $nameGames = 'gcd';
+    $questionGames = 'Find the greatest common divisor of given numbers.';
+    gameselection($nameGames, $questionGames);
+}
+
+function gcdGame()
 {
     $randomValue1 = mt_rand(1, 25);
     $randomValue2 = mt_rand(1, 25);
@@ -16,8 +25,8 @@ function gcd()
         }
         $minNumber -= 1;
     }
-
-    $textQuestion = (string) $randomValue1 . "  " . (string) $randomValue2;
+    
+    $textQuestion = (string) ("{$randomValue1}  {$randomValue2}");
     $textCorrectAnswer = (string) $greatestDivisor;
         
     return array($textQuestion, $textCorrectAnswer);
