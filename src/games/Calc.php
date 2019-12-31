@@ -11,12 +11,12 @@ function calc()
     gameselection($nameGames, $questionGames);
 }
 
-const ARRAYRAND = array('+', '-', '*');
+const SINGS = array('+', '-', '*');
 
 function calcGame()
 {
-    $rand_keys = array_rand(ARRAYRAND, 1);
-    $randomOperator = ARRAYRAND[$rand_keys];
+    $rand_keys = array_rand(SINGS, 1);
+    $randomOperator = SINGS[$rand_keys];
     $randomValue1 = mt_rand(1, 25);
     $randomValue2 = mt_rand(1, 25);
     

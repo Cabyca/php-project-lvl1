@@ -17,7 +17,7 @@
       "email": "cabyca@yandex.ru"
     }
   ],
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "scripts": {
     "phpcs": "phpcs"
   },
