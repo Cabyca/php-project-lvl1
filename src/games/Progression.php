@@ -6,9 +6,9 @@ use function BrainGames\Engine\gameselection;
 
 function progression()
 {
-    $nameGames = 'progression';
+    //$nameGames = 'progression';
     $questionGames = 'What number is missing in the progression?';
-    gameselection($nameGames, $questionGames);
+    gameselection($questionGames);
 }
 
 const LENGHT_PROGRESSION = 10;
