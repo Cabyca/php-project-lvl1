@@ -26,7 +26,7 @@ function gcdGame()
         $minNumber -= 1;
     }
     
-    $textQuestion = (string) ("{$randomValue1}  {$randomValue2}");
+    $textQuestion = "{$randomValue1}  {$randomValue2}";
     $textCorrectAnswer = (string) $greatestDivisor;
         
     return array($textQuestion, $textCorrectAnswer);

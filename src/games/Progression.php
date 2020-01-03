@@ -11,18 +11,19 @@ function progression()
     gameselection($nameGames, $questionGames);
 }
 
+const LENGHT_PROGRESSION = 10;
+const STEP = 10;
+
 function progressionGame()
 {
     $firstDigitOfProgression = mt_rand(1, 10);
     $progressionArray[0] = $firstDigitOfProgression;
     
-    $progressionStep = mt_rand(1, 10);
+    $progressionStep = mt_rand(1, STEP);
     
-    $indexNumber = mt_rand(0, 9);
+    $indexNumber = mt_rand(0, LENGHT_PROGRESSION - 1);
 
-    $lenghtProgression = 10;
-    
-    for ($i = 1; $i < $lenghtProgression; $i += 1) {
+    for ($i = 1; $i < LENGHT_PROGRESSION; $i += 1) {
         $progressionArray[$i] = $progressionArray[$i - 1] + $progressionStep;
     }
    

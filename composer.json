@@ -1,7 +1,6 @@
 {
   "name": "cabyca/php-project-lvl1",
   "bin": [
-    "bin/brain-games",
     "bin/brain-even",
     "bin/brain-calc",
     "bin/brain-gcd",
@@ -24,7 +23,6 @@
   "autoload": {
     "files": [
       "src/Engine.php",
-      "src/games/Cli.php",
       "src/games/Even.php",
       "src/games/Calc.php",
       "src/games/Gcd.php",

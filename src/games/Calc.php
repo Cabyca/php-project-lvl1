@@ -15,8 +15,7 @@ const SINGS = array('+', '-', '*');
 
 function calcGame()
 {
-    $rand_keys = array_rand(SINGS, 1);
-    $randomOperator = SINGS[$rand_keys];
+    $randomOperator = SINGS[array_rand(SINGS, 1)];
     $randomValue1 = mt_rand(1, 25);
     $randomValue2 = mt_rand(1, 25);
     
@@ -37,7 +36,7 @@ function calcGame()
             true;
     }
 
-    $textQuestion = (string) ("{$randomValue1} {$randomOperator} {$randomValue2}");
+    $textQuestion = "{$randomValue1} {$randomOperator} {$randomValue2}";
 
     return array ($textQuestion, $textCorrectAnswer);
 }

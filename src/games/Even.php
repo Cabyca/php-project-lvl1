@@ -16,9 +16,9 @@ function evenGame()
     $randomValue = mt_rand(1, 100);
 
     if (isEven($randomValue)) {
-            $textCorrectAnswer = (string)'yes';
+            $textCorrectAnswer = 'yes';
     } else {
-        $textCorrectAnswer = (string)'no';
+        $textCorrectAnswer = 'no';
     }
         
     $textQuestion = (string) $randomValue;
