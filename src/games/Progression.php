@@ -6,7 +6,6 @@ use function BrainGames\Engine\gameselection;
 
 function progression()
 {
-    //$nameGames = 'progression';
     $questionGames = 'What number is missing in the progression?';
     gameselection($questionGames);
 }
@@ -14,7 +13,7 @@ function progression()
 const LENGHT_PROGRESSION = 10;
 const STEP = 10;
 
-function progressionGame()
+function check()
 {
     $firstDigitOfProgression = mt_rand(1, 10);
     $progressionArray[0] = $firstDigitOfProgression;
