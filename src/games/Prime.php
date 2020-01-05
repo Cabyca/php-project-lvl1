@@ -2,28 +2,45 @@
 
 namespace BrainGames\Prime;
 
-use function BrainGames\Engine\gameselection;
+use const BrainGames\Engine\COUNT_ANSWER;
+
+use function BrainGames\Engine\greeting;
+use function BrainGames\Engine\check;
+use function BrainGames\Engine\gameOver;
+
+const MIN_VALUE = 1;
+const MAX_VALUE = 100;
 
 function prime()
 {
-    $nameGames = 'prime';
     $questionGames = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-    gameselection($nameGames, $questionGames);
-}
+    greeting($questionGames);
 
-function primeGame()
-{
-    $randomValue = mt_rand(1, 100);
+    $countGame = 0;
 
-    $textQuestion = (string) $randomValue;
-
-    if (isPrime($randomValue)) {
-        $textCorrectAnswer = 'yes';
-    } else {
-        $textCorrectAnswer = 'no';
-    }
+    while ($countGame !== COUNT_ANSWER) {
     
-    return array($textQuestion, $textCorrectAnswer);
+        $textQuestion = '';
+        $textCorrectAnswer = '';
+
+        $randomValue = mt_rand(MIN_VALUE, MAX_VALUE);
+
+        $textQuestion = (string) $randomValue;
+
+        if (isPrime($randomValue)) {
+            $textCorrectAnswer = 'yes';
+        } else {
+            $textCorrectAnswer = 'no';
+        }
+
+        if (check($textQuestion, $textCorrectAnswer)) {
+            $countGame += 1;
+        } else {
+            $countGame = 0;
+        }
+
+    }
+    gameOver();
 }
 
 function isPrime($randomValue)

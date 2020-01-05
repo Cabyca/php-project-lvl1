@@ -2,34 +2,50 @@
 
 namespace BrainGames\Progression;
 
-use function BrainGames\Engine\gameselection;
+use const BrainGames\Engine\COUNT_ANSWER;
+
+use function BrainGames\Engine\greeting;
+use function BrainGames\Engine\check;
+use function BrainGames\Engine\gameOver;
+
+const LENGHT_PROGRESSION = 10;
+const STEP = 10;
+const MIN_VALUE = 1;
+const MAX_VALUE = 10;
 
 function progression()
 {
     $questionGames = 'What number is missing in the progression?';
-    gameselection($questionGames);
-}
+    greeting($questionGames);
 
-const LENGHT_PROGRESSION = 10;
-const STEP = 10;
+    $countGame = 0;
 
-function check()
-{
-    $firstDigitOfProgression = mt_rand(1, 10);
-    $progressionArray[0] = $firstDigitOfProgression;
+    while ($countGame !== COUNT_ANSWER) {
+
+        $textQuestion = '';
+        $textCorrectAnswer = '';
+
+        $firstDigitOfProgression = mt_rand(MIN_VALUE, MAX_VALUE);
+        $progressionArray[0] = $firstDigitOfProgression;
+        
+        $progressionStep = mt_rand(1, STEP);
+        
+        $indexNumber = mt_rand(0, LENGHT_PROGRESSION - 1);
+
+        for ($i = 1; $i < LENGHT_PROGRESSION; $i += 1) {
+            $progressionArray[$i] = $progressionArray[$i - 1] + $progressionStep;
+        }
     
-    $progressionStep = mt_rand(1, STEP);
-    
-    $indexNumber = mt_rand(0, LENGHT_PROGRESSION - 1);
+        $textCorrectAnswer = (string) $progressionArray[$indexNumber];
 
-    for ($i = 1; $i < LENGHT_PROGRESSION; $i += 1) {
-        $progressionArray[$i] = $progressionArray[$i - 1] + $progressionStep;
+        $progressionArray[$indexNumber] = '..';
+        $textQuestion = implode($progressionArray, ' ');
+
+        if (check($textQuestion, $textCorrectAnswer)) {
+            $countGame += 1;
+        } else {
+            $countGame = 0;
+        }
     }
-   
-    $textCorrectAnswer = (string) $progressionArray[$indexNumber];
-
-    $progressionArray[$indexNumber] = '..';
-    $textQuestion = implode($progressionArray, ' ');
-    
-    return array($textQuestion, $textCorrectAnswer);
+    gameOver();
 }

@@ -2,32 +2,48 @@
 
 namespace BrainGames\Gcd;
 
-use function BrainGames\Engine\gameselection;
+use const BrainGames\Engine\COUNT_ANSWER;
+
+use function BrainGames\Engine\greeting;
+use function BrainGames\Engine\check;
+use function BrainGames\Engine\gameOver;
+
+const MIN_VALUE = 1;
+const MAX_VALUE = 25;
 
 function gcd()
 {
-    $nameGames = 'gcd';
     $questionGames = 'Find the greatest common divisor of given numbers.';
-    gameselection($nameGames, $questionGames);
-}
+    greeting($questionGames);
 
-function gcdGame()
-{
-    $randomValue1 = mt_rand(1, 25);
-    $randomValue2 = mt_rand(1, 25);
+    $countGame = 0;
+
+    while ($countGame !== COUNT_ANSWER) {
     
-    $minNumber = min($randomValue1, $randomValue2);
+        $textQuestion = '';
+        $textCorrectAnswer = '';
 
-    while (true) {
-        if ($randomValue1 % $minNumber === 0 && $randomValue2 % $minNumber === 0) {
-            $greatestDivisor = $minNumber;
-            break;
+        $randomValue1 = mt_rand(MIN_VALUE, MAX_VALUE);
+        $randomValue2 = mt_rand(MIN_VALUE, MAX_VALUE);
+    
+        $minNumber = min($randomValue1, $randomValue2);
+
+        while (true) {
+            if ($randomValue1 % $minNumber === 0 && $randomValue2 % $minNumber === 0) {
+                $greatestDivisor = $minNumber;
+                break;
+            }
+            $minNumber -= 1;
         }
-        $minNumber -= 1;
-    }
     
-    $textQuestion = "{$randomValue1}  {$randomValue2}";
-    $textCorrectAnswer = (string) $greatestDivisor;
-        
-    return array($textQuestion, $textCorrectAnswer);
+        $textQuestion = "{$randomValue1}  {$randomValue2}";
+        $textCorrectAnswer = (string) $greatestDivisor;
+
+        if (check($textQuestion, $textCorrectAnswer)) {
+            $countGame += 1;
+        } else {
+            $countGame = 0;
+        }
+    }
+    gameOver();
 }

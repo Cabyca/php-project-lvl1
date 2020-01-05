@@ -2,40 +2,55 @@
 
 namespace BrainGames\Calc;
 
-use function BrainGames\Engine\gameselection;
+use const BrainGames\Engine\COUNT_ANSWER;
+
+use function BrainGames\Engine\greeting;
+use function BrainGames\Engine\check;
+use function BrainGames\Engine\gameOver;
+
+const SINGS = array('+', '-', '*');
+const MIN_VALUE = 1;
+const MAX_VALUE = 25;
 
 function calc()
 {
     $questionGames = 'What is the result of the expression?';
-    gameselection($questionGames);
-}
+    greeting($questionGames);
 
-const SINGS = array('+', '-', '*');
+    $countGame = 0;
+
+    while ($countGame !== COUNT_ANSWER) {
     
-function check()
-{
-    $randomOperator = SINGS[array_rand(SINGS, 1)];
-    $randomValue1 = mt_rand(1, 25);
-    $randomValue2 = mt_rand(1, 25);
+        $textQuestion = '';
+        $textCorrectAnswer = '';
+            
+        $randomOperator = SINGS[array_rand(SINGS, 1)];
+        $randomValue1 = mt_rand(MIN_VALUE, MAX_VALUE);
+        $randomValue2 = mt_rand(MIN_VALUE, MAX_VALUE);
     
-    switch ($randomOperator) {
-        case "-":
-            $result = $randomValue1 - $randomValue2;
-            $textCorrectAnswer = (string) $result;
-            break;
-        case "+":
-            $result = $randomValue1 + $randomValue2;
-            $textCorrectAnswer = (string) $result;
-            break;
-        case "*":
-            $result = $randomValue1 * $randomValue2;
-            $textCorrectAnswer = (string) $result;
-            break;
-        default:
-            true;
+        switch ($randomOperator) {
+            case "-":
+                $result = $randomValue1 - $randomValue2;
+                $textCorrectAnswer = (string) $result;
+                break;
+            case "+":
+                $result = $randomValue1 + $randomValue2;
+                $textCorrectAnswer = (string) $result;
+                break;
+            case "*":
+                $result = $randomValue1 * $randomValue2;
+                $textCorrectAnswer = (string) $result;
+                break;
+            default:
+                true;
+        }
+        $textQuestion = "{$randomValue1} {$randomOperator} {$randomValue2}";
+
+        if (check($textQuestion, $textCorrectAnswer)) {
+            $countGame += 1;
+        } else {
+            $countGame = 0;
+        }
     }
-
-    $textQuestion = "{$randomValue1} {$randomOperator} {$randomValue2}";
-
-    return array($textQuestion, $textCorrectAnswer);
+    gameOver();
 }

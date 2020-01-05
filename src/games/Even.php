@@ -2,29 +2,44 @@
 
 namespace BrainGames\Even;
 
-use function BrainGames\Engine\gameselection;
+use const BrainGames\Engine\COUNT_ANSWER;
+
+use function BrainGames\Engine\greeting;
+use function BrainGames\Engine\check;
+use function BrainGames\Engine\gameOver;
+
+const MIN_VALUE = 1;
+const MAX_VALUE = 100;
 
 function even()
 {
-    $nameGames = 'even';
     $questionGames = 'Answer "yes" if the number is even, otherwise answer "no".';
-    gameselection($nameGames, $questionGames);
-}
+    greeting($questionGames);
 
-function evenGame()
-{
-    $randomValue = mt_rand(1, 100);
+    $countGame = 0;
 
-    if (isEven($randomValue)) {
-            $textCorrectAnswer = 'yes';
-    } else {
-        $textCorrectAnswer = 'no';
-    }
-        
-    $textQuestion = (string) $randomValue;
+    while ($countGame !== COUNT_ANSWER) {
 
+        $textQuestion = '';
+        $textCorrectAnswer = '';
     
-    return array ($textQuestion, $textCorrectAnswer);
+        $randomValue = mt_rand(MIN_VALUE, MAX_VALUE);
+
+        if (isEven($randomValue)) {
+            $textCorrectAnswer = 'yes';
+        } else {
+            $textCorrectAnswer = 'no';
+        }
+        
+        $textQuestion = (string) $randomValue;
+
+        if (check($textQuestion, $textCorrectAnswer)) {
+            $countGame += 1;
+        } else {
+            $countGame = 0;
+        }
+    }
+    gameOver();
 }
 
 function isEven($randomValue)
