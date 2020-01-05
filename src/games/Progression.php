@@ -2,11 +2,11 @@
 
 namespace BrainGames\Progression;
 
-use const BrainGames\Engine\COUNT_ANSWER;
-
 use function BrainGames\Engine\greeting;
 use function BrainGames\Engine\check;
 use function BrainGames\Engine\gameOver;
+
+use const BrainGames\Engine\COUNT_ANSWER;
 
 const LENGHT_PROGRESSION = 10;
 const STEP = 10;
@@ -21,7 +21,6 @@ function progression()
     $countGame = 0;
 
     while ($countGame !== COUNT_ANSWER) {
-
         $textQuestion = '';
         $textCorrectAnswer = '';
 

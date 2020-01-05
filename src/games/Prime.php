@@ -2,11 +2,11 @@
 
 namespace BrainGames\Prime;
 
-use const BrainGames\Engine\COUNT_ANSWER;
-
 use function BrainGames\Engine\greeting;
 use function BrainGames\Engine\check;
 use function BrainGames\Engine\gameOver;
+
+use const BrainGames\Engine\COUNT_ANSWER;
 
 const MIN_VALUE = 1;
 const MAX_VALUE = 100;
@@ -19,7 +19,6 @@ function prime()
     $countGame = 0;
 
     while ($countGame !== COUNT_ANSWER) {
-    
         $textQuestion = '';
         $textCorrectAnswer = '';
 
@@ -38,7 +37,6 @@ function prime()
         } else {
             $countGame = 0;
         }
-
     }
     gameOver();
 }

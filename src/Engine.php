@@ -7,10 +7,9 @@ use function cli\prompt;
 
 const COUNT_ANSWER = 3;
 
-$name = '';
-
 function greeting($questionGames)
 {
+    $name = '';
     line('Welcome to the Brain Game!');
     line($questionGames);
     global $name;
