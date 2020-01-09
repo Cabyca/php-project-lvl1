@@ -2,11 +2,9 @@
 
 namespace BrainGames\Calc;
 
-use function BrainGames\Engine\greeting;
 use function BrainGames\Engine\check;
-use function BrainGames\Engine\gameOver;
 
-use const BrainGames\Engine\COUNT_ANSWER;
+use const BrainGames\Engine\COUNT_GAME;
 
 const SINGS = array('+', '-', '*');
 const MIN_VALUE = 1;
@@ -15,14 +13,12 @@ const MAX_VALUE = 25;
 function calc()
 {
     $questionGames = 'What is the result of the expression?';
-    greeting($questionGames);
-
+    
     $countGame = 0;
+    $textQuestion = [];
+    $textCorrectAnswer = [];
 
-    while ($countGame !== COUNT_ANSWER) {
-        $textQuestion = '';
-        $textCorrectAnswer = '';
-            
+    while ($countGame !== COUNT_GAME) {
         $randomOperator = SINGS[array_rand(SINGS, 1)];
         $randomValue1 = mt_rand(MIN_VALUE, MAX_VALUE);
         $randomValue2 = mt_rand(MIN_VALUE, MAX_VALUE);
@@ -30,26 +26,22 @@ function calc()
         switch ($randomOperator) {
             case "-":
                 $result = $randomValue1 - $randomValue2;
-                $textCorrectAnswer = (string) $result;
+                $textCorrectAnswer[$countGame] = (string) $result;
                 break;
             case "+":
                 $result = $randomValue1 + $randomValue2;
-                $textCorrectAnswer = (string) $result;
+                $textCorrectAnswer[$countGame] = (string) $result;
                 break;
             case "*":
                 $result = $randomValue1 * $randomValue2;
-                $textCorrectAnswer = (string) $result;
+                $textCorrectAnswer[$countGame] = (string) $result;
                 break;
             default:
                 true;
         }
-        $textQuestion = "{$randomValue1} {$randomOperator} {$randomValue2}";
-
-        if (check($textQuestion, $textCorrectAnswer)) {
-            $countGame += 1;
-        } else {
-            $countGame = 0;
-        }
+        $textQuestion[$countGame] = "{$randomValue1} {$randomOperator} {$randomValue2}";
+        $countGame += 1;
     }
-    gameOver();
+    
+    check($questionGames, $textQuestion, $textCorrectAnswer);
 }
