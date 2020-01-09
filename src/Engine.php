@@ -14,7 +14,7 @@ function check($questionGames, $textQuestion, $textCorrectAnswer)
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
     
-    for ($i = 0; $i < COUNT_GAME; $i += 1) {    
+    for ($i = 0; $i < COUNT_GAME; $i += 1) {
         line("Question: {$textQuestion[$i]}");
         $answerGamer = prompt('Your answer ');
         if ($textCorrectAnswer[$i] === (string) $answerGamer) {
@@ -25,6 +25,5 @@ function check($questionGames, $textQuestion, $textCorrectAnswer)
             return false;
         }
     }
-    
     line("Congratulations, %s!", $name);
 }

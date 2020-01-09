@@ -21,13 +21,13 @@ function progression()
 
     while ($countGame !== COUNT_GAME) {
         $firstDigitOfProgression = mt_rand(MIN_VALUE, MAX_VALUE);
-        $progressionStep = mt_rand(1, STEP);        
+        $progressionStep = mt_rand(1, STEP);
         $indexNumber = mt_rand(0, LENGHT_PROGRESSION - 1);
-
+        
         for ($i = 0; $i < LENGHT_PROGRESSION; $i += 1) {
             $progressionArray[$i] = $firstDigitOfProgression + $progressionStep * $i;
         }
-    
+        
         $textCorrectAnswer[$countGame] = (string) $progressionArray[$indexNumber];
 
         $progressionArray[$indexNumber] = '..';

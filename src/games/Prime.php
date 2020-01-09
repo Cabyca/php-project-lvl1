@@ -28,7 +28,6 @@ function prime()
             $textCorrectAnswer[$countGame] = 'no';
         }
         $countGame += 1;
-
     }
 
     check($questionGames, $textQuestion, $textCorrectAnswer);
