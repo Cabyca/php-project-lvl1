@@ -21,10 +21,9 @@ function calc()
         $randomOperator = SINGS[array_rand(SINGS, 1)];
         $randomValue1 = mt_rand(MIN_VALUE, MAX_VALUE);
         $randomValue2 = mt_rand(MIN_VALUE, MAX_VALUE);
-    
         switch ($randomOperator) {
             case "-":
-                $result = $randomValue1 - $randomValue2;              
+                $result = $randomValue1 - $randomValue2;
                 break;
             case "+":
                 $result = $randomValue1 + $randomValue2;
@@ -37,7 +36,6 @@ function calc()
         }
         $correctAnswer[$i] = (string) $result;
         $questions[$i] = "{$randomValue1} {$randomOperator} {$randomValue2}";
-    }
-    
+    }    
     engine($questionGames, $questions, $correctAnswer);
 }

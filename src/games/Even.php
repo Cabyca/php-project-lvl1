@@ -21,7 +21,6 @@ function even()
 
         $correctAnswer[$i] = isEvenOrOdd($questions[$i]) ? 'yes' : 'no';
     }
-
     engine($questionGames, $questions, $correctAnswer);
 }
 

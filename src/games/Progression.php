@@ -32,6 +32,5 @@ function progression()
         $progressionArray[$indexNumber] = '..';
         $questions[$i] = implode($progressionArray, ' ');
     }
-
     engine($questionGames, $questions, $correctAnswer);
 }
