@@ -2,9 +2,9 @@
 
 namespace BrainGames\Gcd;
 
-use function BrainGames\Engine\check;
+use function BrainGames\Engine\engine;
 
-use const BrainGames\Engine\COUNT_GAME;
+use const BrainGames\Engine\COUNTER;
 
 const MIN_VALUE = 1;
 const MAX_VALUE = 25;
@@ -13,19 +13,17 @@ function gcd()
 {
     $questionGames = 'Find the greatest common divisor of given numbers.';
     
-    $countGame = 0;
-    $textQuestion = [];
-    $textCorrectAnswer = [];
+    $questions = [];
+    $correctAnswer = [];
 
-    while ($countGame !== COUNT_GAME) {
+    for ($i = 0; $i < COUNTER; $i += 1) {
         $randomValue1 = mt_rand(MIN_VALUE, MAX_VALUE);
         $randomValue2 = mt_rand(MIN_VALUE, MAX_VALUE);
         $minNumber = min($randomValue1, $randomValue2);
-        $textQuestion[$countGame] = "{$randomValue1}  {$randomValue2}";
-        $textCorrectAnswer[$countGame] = leastDivisorSearch($minNumber, $randomValue1, $randomValue2);
-        $countGame += 1;
+        $questions[$i] = "{$randomValue1}  {$randomValue2}";
+        $correctAnswer[$i] = leastDivisorSearch($minNumber, $randomValue1, $randomValue2);
     }
-    check($questionGames, $textQuestion, $textCorrectAnswer);
+    engine($questionGames, $questions, $correctAnswer);
 }
 
 function leastDivisorSearch($minNumber, $randomValue1, $randomValue2)

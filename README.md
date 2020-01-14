@@ -1,4 +1,21 @@
 # php-project-lvl1
+
+Установите проект глобально: composer create-project cabyca/php-project-lvl1
+
+Запустите любую из пяти игр, и ответьте правильно на 3 подряд задаваемых вопроса
+
+В случае неправильного ответа начните заново, перезапустив игру
+
+Список запускаемых игр:
+
+1) brain-calc           - вычислите правильный ответ
+2) brain-even           - ответьте четное чиcло или нет
+3) brain-gcd            - найдите наибольший делитель двух чисел
+4) brain-prime          - ответьте, является ли данное число простым
+5) brain-progression    - введите пропущенное число арифметической прогрессии
+
+Спасибо!
+
 [![Maintainability](https://api.codeclimate.com/v1/badges/9573ebdbffc4c3e6c468/maintainability)](https://codeclimate.com/github/Cabyca/php-project-lvl1-1/maintainability)
 [![Build Status](https://travis-ci.org/Cabyca/php-project-lvl1.svg?branch=master)](https://travis-ci.org/Cabyca/php-project-lvl1)
 

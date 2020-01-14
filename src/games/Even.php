@@ -2,9 +2,9 @@
 
 namespace BrainGames\Even;
 
-use function BrainGames\Engine\check;
+use function BrainGames\Engine\engine;
 
-use const BrainGames\Engine\COUNT_GAME;
+use const BrainGames\Engine\COUNTER;
 
 const MIN_VALUE = 1;
 const MAX_VALUE = 100;
@@ -13,27 +13,19 @@ function even()
 {
     $questionGames = 'Answer "yes" if the number is even, otherwise answer "no".';
     
-    $countGame = 0;
-    $textQuestion = [];
-    $textCorrectAnswer = [];
+    $questions = [];
+    $correctAnswer = [];
 
-    while ($countGame !== COUNT_GAME) {
-        $randomValue = mt_rand(MIN_VALUE, MAX_VALUE);
+    for ($i = 0; $i < COUNTER; $i += 1) {
+        $questions[$i] = (string) mt_rand(MIN_VALUE, MAX_VALUE);
 
-        if (isEven($randomValue)) {
-            $textCorrectAnswer[$countGame] = 'yes';
-        } else {
-            $textCorrectAnswer[$countGame] = 'no';
-        }
-        
-        $textQuestion[$countGame] = (string) $randomValue;
-        $countGame += 1;
+        $correctAnswer[$i] = isEvenOrOdd($questions[$i]) ? 'yes' : 'no';
     }
 
-    check($questionGames, $textQuestion, $textCorrectAnswer);
+    engine($questionGames, $questions, $correctAnswer);
 }
 
-function isEven($randomValue)
+function isEvenOrOdd($questions)
 {
-    return $randomValue % 2 === 0;
+    return $questions % 2 === 0;
 }

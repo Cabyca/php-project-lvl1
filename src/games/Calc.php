@@ -2,9 +2,9 @@
 
 namespace BrainGames\Calc;
 
-use function BrainGames\Engine\check;
+use function BrainGames\Engine\engine;
 
-use const BrainGames\Engine\COUNT_GAME;
+use const BrainGames\Engine\COUNTER;
 
 const SINGS = array('+', '-', '*');
 const MIN_VALUE = 1;
@@ -14,34 +14,30 @@ function calc()
 {
     $questionGames = 'What is the result of the expression?';
     
-    $countGame = 0;
-    $textQuestion = [];
-    $textCorrectAnswer = [];
+    $questions = [];
+    $correctAnswer = [];
 
-    while ($countGame !== COUNT_GAME) {
+    for ($i = 0; $i < COUNTER; $i += 1) {
         $randomOperator = SINGS[array_rand(SINGS, 1)];
         $randomValue1 = mt_rand(MIN_VALUE, MAX_VALUE);
         $randomValue2 = mt_rand(MIN_VALUE, MAX_VALUE);
     
         switch ($randomOperator) {
             case "-":
-                $result = $randomValue1 - $randomValue2;
-                $textCorrectAnswer[$countGame] = (string) $result;
+                $result = $randomValue1 - $randomValue2;              
                 break;
             case "+":
                 $result = $randomValue1 + $randomValue2;
-                $textCorrectAnswer[$countGame] = (string) $result;
                 break;
             case "*":
                 $result = $randomValue1 * $randomValue2;
-                $textCorrectAnswer[$countGame] = (string) $result;
                 break;
             default:
-                true;
+                false;
         }
-        $textQuestion[$countGame] = "{$randomValue1} {$randomOperator} {$randomValue2}";
-        $countGame += 1;
+        $correctAnswer[$i] = (string) $result;
+        $questions[$i] = "{$randomValue1} {$randomOperator} {$randomValue2}";
     }
     
-    check($questionGames, $textQuestion, $textCorrectAnswer);
+    engine($questionGames, $questions, $correctAnswer);
 }

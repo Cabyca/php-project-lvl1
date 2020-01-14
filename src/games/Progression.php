@@ -2,9 +2,9 @@
 
 namespace BrainGames\Progression;
 
-use function BrainGames\Engine\check;
+use function BrainGames\Engine\engine;
 
-use const BrainGames\Engine\COUNT_GAME;
+use const BrainGames\Engine\COUNTER;
 
 const LENGHT_PROGRESSION = 10;
 const STEP = 10;
@@ -15,25 +15,23 @@ function progression()
 {
     $questionGames = 'What number is missing in the progression?';
     
-    $countGame = 0;
-    $textQuestion = [];
-    $textCorrectAnswer = [];
+    $questions = [];
+    $correctAnswer = [];
 
-    while ($countGame !== COUNT_GAME) {
+    for ($i = 0; $i < COUNTER; $i += 1) {
         $firstDigitOfProgression = mt_rand(MIN_VALUE, MAX_VALUE);
         $progressionStep = mt_rand(1, STEP);
         $indexNumber = mt_rand(0, LENGHT_PROGRESSION - 1);
         
-        for ($i = 0; $i < LENGHT_PROGRESSION; $i += 1) {
-            $progressionArray[$i] = $firstDigitOfProgression + $progressionStep * $i;
+        for ($j = 0; $j < LENGHT_PROGRESSION; $j += 1) {
+            $progressionArray[$j] = $firstDigitOfProgression + $progressionStep * $j;
         }
         
-        $textCorrectAnswer[$countGame] = (string) $progressionArray[$indexNumber];
+        $correctAnswer[$i] = (string) $progressionArray[$indexNumber];
 
         $progressionArray[$indexNumber] = '..';
-        $textQuestion[$countGame] = implode($progressionArray, ' ');
-        $countGame += 1;
+        $questions[$i] = implode($progressionArray, ' ');
     }
 
-    check($questionGames, $textQuestion, $textCorrectAnswer);
+    engine($questionGames, $questions, $correctAnswer);
 }
