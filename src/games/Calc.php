@@ -36,6 +36,6 @@ function calc()
         }
         $correctAnswer[$i] = (string) $result;
         $questions[$i] = "{$randomValue1} {$randomOperator} {$randomValue2}";
-    }    
+    }
     engine($questionGames, $questions, $correctAnswer);
 }
