@@ -11,20 +11,20 @@ const MAX_VALUE = 100;
 
 function even()
 {
-    $questionGames = 'Answer "yes" if the number is even, otherwise answer "no".';
+    $questionGame = 'Answer "yes" if the number is even, otherwise answer "no".';
     
     $questions = [];
-    $correctAnswer = [];
+    $correctAnswers = [];
 
     for ($i = 0; $i < COUNTER; $i += 1) {
         $questions[$i] = (string) mt_rand(MIN_VALUE, MAX_VALUE);
 
-        $correctAnswer[$i] = isEvenOrOdd($questions[$i]) ? 'yes' : 'no';
+        $correctAnswers[$i] = isEven($questions[$i]) ? 'yes' : 'no';
     }
-    engine($questionGames, $questions, $correctAnswer);
+    engine($questionGame, $questions, $correctAnswers);
 }
 
-function isEvenOrOdd($questions)
+function isEven($questions)
 {
     return $questions % 2 === 0;
 }

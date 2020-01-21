@@ -12,10 +12,10 @@ const MAX_VALUE = 25;
 
 function calc()
 {
-    $questionGames = 'What is the result of the expression?';
+    $questionGame = 'What is the result of the expression?';
     
     $questions = [];
-    $correctAnswer = [];
+    $correctAnswers = [];
 
     for ($i = 0; $i < COUNTER; $i += 1) {
         $randomOperator = SINGS[array_rand(SINGS, 1)];
@@ -34,8 +34,8 @@ function calc()
             default:
                 false;
         }
-        $correctAnswer[$i] = (string) $result;
+        $correctAnswers[$i] = (string) $result;
         $questions[$i] = "{$randomValue1} {$randomOperator} {$randomValue2}";
     }
-    engine($questionGames, $questions, $correctAnswer);
+    engine($questionGame, $questions, $correctAnswers);
 }

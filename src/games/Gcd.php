@@ -11,22 +11,22 @@ const MAX_VALUE = 25;
 
 function gcd()
 {
-    $questionGames = 'Find the greatest common divisor of given numbers.';
+    $questionGame = 'Find the greatest common divisor of given numbers.';
     
     $questions = [];
-    $correctAnswer = [];
+    $correctAnswers = [];
 
     for ($i = 0; $i < COUNTER; $i += 1) {
         $randomValue1 = mt_rand(MIN_VALUE, MAX_VALUE);
         $randomValue2 = mt_rand(MIN_VALUE, MAX_VALUE);
         $minNumber = min($randomValue1, $randomValue2);
         $questions[$i] = "{$randomValue1}  {$randomValue2}";
-        $correctAnswer[$i] = leastDivisorSearch($minNumber, $randomValue1, $randomValue2);
+        $correctAnswers[$i] = findTheGreatestDivisor($minNumber, $randomValue1, $randomValue2);
     }
-    engine($questionGames, $questions, $correctAnswer);
+    engine($questionGame, $questions, $correctAnswers);
 }
 
-function leastDivisorSearch($minNumber, $randomValue1, $randomValue2)
+function findTheGreatestDivisor($minNumber, $randomValue1, $randomValue2)
 {
     $greatestDivisor = 0;
     while (true) {

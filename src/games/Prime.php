@@ -6,26 +6,30 @@ use function BrainGames\Engine\engine;
 
 use const BrainGames\Engine\COUNTER;
 
-const MIN_VALUE = 2;
+const MIN_VALUE = -10;
 const MAX_VALUE = 100;
 
 function prime()
 {
-    $questionGames = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+    $questionGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     
     $questions = [];
-    $correctAnswer = [];
+    $correctAnswers = [];
 
     for ($i = 0; $i < COUNTER; $i += 1) {
         $questions[$i] = (string) mt_rand(MIN_VALUE, MAX_VALUE);
 
-        $correctAnswer[$i] = isSimpleOrNotNumber($questions[$i]) ? 'yes' : 'no';
+        $correctAnswers[$i] = isSimple($questions[$i]) ? 'yes' : 'no';
     }
-    engine($questionGames, $questions, $correctAnswer);
+    engine($questionGame, $questions, $correctAnswers);
 }
 
-function isSimpleOrNotNumber($questions)
+function isSimple($questions)
 {
+    if ($questions < 2) {
+        return false;
+    }
+
     $sqrtRandomValue = sqrt($questions);
 
     for ($i = 2; $i <= $sqrtRandomValue; $i += 1) {
