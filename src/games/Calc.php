@@ -4,7 +4,7 @@ namespace BrainGames\Calc;
 
 use function BrainGames\Engine\engine;
 
-use const BrainGames\Engine\COUNTER;
+use const BrainGames\Engine\ROUNDS_COUNTER;
 
 const SINGS = array('+', '-', '*');
 const MIN_VALUE = 1;
@@ -12,12 +12,11 @@ const MAX_VALUE = 25;
 
 function calc()
 {
-    $questionGame = 'What is the result of the expression?';
+    $gameTask = 'What is the result of the expression?';
     
-    $questions = [];
-    $correctAnswers = [];
+    $gameDates = [];
 
-    for ($i = 0; $i < COUNTER; $i += 1) {
+    for ($i = 0; $i < ROUNDS_COUNTER; $i += 1) {
         $randomOperator = SINGS[array_rand(SINGS, 1)];
         $randomValue1 = mt_rand(MIN_VALUE, MAX_VALUE);
         $randomValue2 = mt_rand(MIN_VALUE, MAX_VALUE);
@@ -34,8 +33,9 @@ function calc()
             default:
                 false;
         }
-        $correctAnswers[$i] = (string) $result;
-        $questions[$i] = "{$randomValue1} {$randomOperator} {$randomValue2}";
+        $questions = "{$randomValue1} {$randomOperator} {$randomValue2}";
+        $correctAnswers = (string) $result;
+        $gameDates[$questions] = $correctAnswers;
     }
-    engine($questionGame, $questions, $correctAnswers);
+    engine($gameTask, $gameDates);
 }

@@ -5,21 +5,20 @@ namespace BrainGames\Engine;
 use function cli\line;
 use function cli\prompt;
 
-const COUNTER = 3;
+const ROUNDS_COUNTER = 3;
 
-function engine($questionGame, $questions, $correctAnswers)
+function engine($gameTask, $gameDates)
 {
     line('Welcome to the Brain Game!');
-    line($questionGame);
+    line($gameTask);
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
 
-    for ($i = 0; $i < COUNTER; $i += 1) {
-        $answer = $correctAnswers[$i];
-        line("Question: {$questions[$i]}");
-        $answerGamer = prompt('Your answer ');
-        if ($answer !== $answerGamer) {
-            line("'{$answerGamer}' is wrong answer ;(. Correct answer was '{$answer}'.");
+    foreach ($gameDates as $questions => $correctAnswers) {
+        line("Question: {$questions}");
+        $gamerAnswer = prompt('Your answer ');
+        if ($gamerAnswer !== $correctAnswers) {
+            line("'{$gamerAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswers}'.");
             line("Let's try again, %s!", $name);
             return false;
         }

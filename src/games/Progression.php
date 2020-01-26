@@ -4,7 +4,7 @@ namespace BrainGames\Progression;
 
 use function BrainGames\Engine\engine;
 
-use const BrainGames\Engine\COUNTER;
+use const BrainGames\Engine\ROUNDS_COUNTER;
 
 const LENGHT_PROGRESSION = 10;
 const STEP = 10;
@@ -13,24 +13,23 @@ const MAX_VALUE = 10;
 
 function progression()
 {
-    $questionGame = 'What number is missing in the progression?';
+    $gameTask = 'What number is missing in the progression?';
     
-    $questions = [];
-    $correctAnswers = [];
+    $gameDates = [];
 
-    for ($i = 0; $i < COUNTER; $i += 1) {
+    for ($i = 0; $i < ROUNDS_COUNTER; $i += 1) {
         $firstDigitOfProgression = mt_rand(MIN_VALUE, MAX_VALUE);
         $progressionStep = mt_rand(1, STEP);
         $hiddenNumberIndex = mt_rand(0, LENGHT_PROGRESSION - 1);
         
         for ($j = 0; $j < LENGHT_PROGRESSION; $j += 1) {
-            $progressionArray[$j] = $firstDigitOfProgression + $progressionStep * $j;
+            $progressions[$j] = $firstDigitOfProgression + $progressionStep * $j;
         }
         
-        $correctAnswers[$i] = (string) $progressionArray[$hiddenNumberIndex];
-
-        $progressionArray[$hiddenNumberIndex] = '..';
-        $questions[$i] = implode($progressionArray, ' ');
+        $correctAnswers = (string) $progressions[$hiddenNumberIndex];
+        $progressions[$hiddenNumberIndex] = '..';
+        $questions = implode($progressions, ' ');
+        $gameDates[$questions] = $correctAnswers;
     }
-    engine($questionGame, $questions, $correctAnswers);
+    engine($gameTask, $gameDates);
 }
