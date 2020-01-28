@@ -20,7 +20,7 @@ function engine($gameTask, $gameData)
         if ($gamerAnswer !== $correctAnswers) {
             line("'{$gamerAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswers}'.");
             line("Let's try again, %s!", $name);
-            return true;
+            return;
         }
         line('Correct!');
     }
