@@ -14,7 +14,7 @@ function calc()
 {
     $gameTask = 'What is the result of the expression?';
     
-    $gameDates = [];
+    $gameData = [];
 
     for ($i = 0; $i < ROUNDS_COUNTER; $i += 1) {
         $randomOperator = SINGS[array_rand(SINGS, 1)];
@@ -31,11 +31,11 @@ function calc()
                 $result = $randomValue1 * $randomValue2;
                 break;
             default:
-                false;
+                return false;
         }
         $questions = "{$randomValue1} {$randomOperator} {$randomValue2}";
         $correctAnswers = (string) $result;
-        $gameDates[$questions] = $correctAnswers;
+        $gameData[$questions] = $correctAnswers;
     }
-    engine($gameTask, $gameDates);
+    engine($gameTask, $gameData);
 }

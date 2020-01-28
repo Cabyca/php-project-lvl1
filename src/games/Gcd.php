@@ -13,16 +13,16 @@ function gcd()
 {
     $gameTask = 'Find the greatest common divisor of given numbers.';
     
-    $gameDates = [];
+    $gameData = [];
 
     for ($i = 0; $i < ROUNDS_COUNTER; $i += 1) {
         $randomValue1 = mt_rand(MIN_VALUE, MAX_VALUE);
         $randomValue2 = mt_rand(MIN_VALUE, MAX_VALUE);
         $questions = "{$randomValue1}  {$randomValue2}";
         $correctAnswers = findTheGreatestDivisor($randomValue1, $randomValue2);
-        $gameDates[$questions] = $correctAnswers;
+        $gameData[$questions] = $correctAnswers;
     }
-    engine($gameTask, $gameDates);
+    engine($gameTask, $gameData);
 }
 
 function findTheGreatestDivisor($randomValue1, $randomValue2)

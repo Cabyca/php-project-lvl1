@@ -13,14 +13,14 @@ function even()
 {
     $gameTask = 'Answer "yes" if the number is even, otherwise answer "no".';
     
-    $gameDates = [];
+    $gameData = [];
 
     for ($i = 0; $i < ROUNDS_COUNTER; $i += 1) {
         $questions = (string) mt_rand(MIN_VALUE, MAX_VALUE);
         $correctAnswers = isEven($questions) ? 'yes' : 'no';
-        $gameDates[$questions] = $correctAnswers;
+        $gameData[$questions] = $correctAnswers;
     }
-    engine($gameTask, $gameDates);
+    engine($gameTask, $gameData);
 }
 
 function isEven($questions)

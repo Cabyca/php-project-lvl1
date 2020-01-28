@@ -13,14 +13,14 @@ function prime()
 {
     $gameTask = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     
-    $gameDates = [];
+    $gameData = [];
 
     for ($i = 0; $i < ROUNDS_COUNTER; $i += 1) {
         $questions = (string) mt_rand(MIN_VALUE, MAX_VALUE);
         $correctAnswers = isSimple($questions) ? 'yes' : 'no';
-        $gameDates[$questions] = $correctAnswers;
+        $gameData[$questions] = $correctAnswers;
     }
-    engine($gameTask, $gameDates);
+    engine($gameTask, $gameData);
 }
 
 function isSimple($questions)

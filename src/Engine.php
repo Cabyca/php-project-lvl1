@@ -7,20 +7,20 @@ use function cli\prompt;
 
 const ROUNDS_COUNTER = 3;
 
-function engine($gameTask, $gameDates)
+function engine($gameTask, $gameData)
 {
     line('Welcome to the Brain Game!');
     line($gameTask);
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
 
-    foreach ($gameDates as $questions => $correctAnswers) {
+    foreach ($gameData as $questions => $correctAnswers) {
         line("Question: {$questions}");
         $gamerAnswer = prompt('Your answer ');
         if ($gamerAnswer !== $correctAnswers) {
             line("'{$gamerAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswers}'.");
             line("Let's try again, %s!", $name);
-            return false;
+            return true;
         }
         line('Correct!');
     }

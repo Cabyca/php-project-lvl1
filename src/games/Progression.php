@@ -15,7 +15,7 @@ function progression()
 {
     $gameTask = 'What number is missing in the progression?';
     
-    $gameDates = [];
+    $gameData = [];
 
     for ($i = 0; $i < ROUNDS_COUNTER; $i += 1) {
         $firstDigitOfProgression = mt_rand(MIN_VALUE, MAX_VALUE);
@@ -29,7 +29,7 @@ function progression()
         $correctAnswers = (string) $progressions[$hiddenNumberIndex];
         $progressions[$hiddenNumberIndex] = '..';
         $questions = implode($progressions, ' ');
-        $gameDates[$questions] = $correctAnswers;
+        $gameData[$questions] = $correctAnswers;
     }
-    engine($gameTask, $gameDates);
+    engine($gameTask, $gameData);
 }
